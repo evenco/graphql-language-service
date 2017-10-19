@@ -141,7 +141,8 @@ export class GraphQLLanguageService {
       /* eslint-disable no-implicit-coercion */
       const rulesPath = require.resolve(`${customRulesModulePath}`);
       if (rulesPath) {
-        customRules = require(`${rulesPath}`)(this._graphQLConfig);
+        const aliasedRequire = require;
+        customRules = aliasedRequire(`${rulesPath}`)(this._graphQLConfig);
       }
       /* eslint-enable no-implicit-coercion */
     }
